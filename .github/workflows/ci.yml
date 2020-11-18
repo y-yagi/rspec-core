@@ -43,7 +43,7 @@ jobs:
           - "~> 1.3.0"
           - "1.4.3"
     env:
-      DIFF_LCS_VERSION: ${ matrix.diff-lcs }}
+      DIFF_LCS_VERSION: ${{ matrix.diff-lcs }}
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
