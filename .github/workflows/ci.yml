@@ -72,6 +72,7 @@ jobs:
       - run: script/update_rubygems_and_install_bundler
       - run: script/clone_all_rspec_repos
       - run: bundle install --binstubs --standalone
+      - run: bundle binstubs rspec-core
       - run: ls -al
       - run: ls -al bin/
       - run: script/run_build
