@@ -57,9 +57,16 @@ jobs:
       - run: script/run_build
 
   legacy:
-    name: Ruby 2.0.0 (Legacy)
+    name: Legacy Ruby Builds (${{ matrix.container.version }})
     runs-on: ubuntu-20.04
-    container: ruby:2.1.9-slim
+    container: ${{ matrix.container.tag }}
+    strategy:
+      matrix:
+        container:
+          - version: 2.0
+            tag: ruby:2.0.0
+          - version: 1.9.3
+            tag: ruby:1.9.3
     steps:
       - uses: actions/checkout@v2
       - run: script/update_rubygems_and_install_bundler
