@@ -63,13 +63,14 @@ jobs:
     strategy:
       matrix:
         container:
-          - version: 2.0
+          - version: "2.0"
             tag: ruby:2.0.0
-          - version: 1.9.3
+          - version: "1.9.3"
             tag: ruby:1.9.3
     steps:
       - uses: actions/checkout@v2
       - run: script/update_rubygems_and_install_bundler
       - run: script/clone_all_rspec_repos
       - run: bundle install --binstubs --standalone
+      - run: ls -al
       - run: script/run_build
